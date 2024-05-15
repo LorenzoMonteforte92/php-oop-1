@@ -1,45 +1,7 @@
 <?php
 
-class Movie{
-
-    //attributi della classe
-    public $title;
-    public $director;
-    public $genre;
-    public $year;
-    public $vote;
-
-    //costruttore (attributi obbligatori)
-    function __construct($_title, Director $_director, $_year) {
-        $this->title = $_title;
-        $this->director = $_director;
-        $this->year = $_year;
-    }
-
-    function getMovieFullDetails(){
-        
-        $fullDetails = $this->title . ' ' . $this->director . ' ' . $this->year;
-
-        return $fullDetails; 
-
-    }
-}
-
-class Director{
-
-    //attributi della classe
-    public $name;
-    public $surname;
-    public $dateOfBirth;
-    public $nationality;
-
-    //costruttore (attributi obbligatori)
-    function __construct($name, $surname) {
-        $this->name = $name;
-        $this->surname = $surname;
-    }
-
-}
+require_once __DIR__ . '/Models/Movie.php';
+require_once __DIR__ . '/Models/Director.php';
 
 
 //istanza Director per Paolo Virzì
@@ -71,6 +33,23 @@ $laGrandeBellezza->genre = ['drammatico', 'grottesco', 'commedia'];
 $laGrandeBellezza->vote = 4;
 // echo $laGrandeBellezza->getMovieFullDetails();
 
-var_dump($ovoSodo);
-var_dump($laGrandeBellezza);
+// var_dump($ovoSodo);
+// var_dump($laGrandeBellezza);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+</head>
+<body>
+    <div>
+        <?php echo $ovoSodo->getMovieFullDetails() ?>
+    </div>
+    <div>
+        <?php echo $laGrandeBellezza->getMovieFullDetails() ?>
+    </div>
+</body>
+</html>
